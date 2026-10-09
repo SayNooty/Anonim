@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Детейлинг — искусство ухода за авто</title>
-  <!-- Font Awesome 6 (бесплатные иконки) -->
+  <title>Детейлинг в Белгороде — Доступный уход за авто</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ---------- ГЛОБАЛЬНЫЕ СТИЛИ ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -22,10 +20,7 @@
       scroll-behavior: smooth;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .container {
       max-width: 1200px;
@@ -33,10 +28,8 @@
       padding: 0 24px;
     }
 
-    /* ---------- ЦВЕТОВАЯ СХЕМА (тёмно-синий + акцент) ---------- */
     :root {
       --deep: #0a1c2f;
-      --deep-light: #13293d;
       --accent: #3b82f6;
       --accent-glow: #60a5fa;
       --gray-soft: #eef2f6;
@@ -44,7 +37,7 @@
       --text-muted: #94a3b8;
     }
 
-    /* ---------- ХЕДЕР (шапка) ---------- */
+    /* ---------- ХЕДЕР ---------- */
     header {
       background-color: var(--deep);
       color: white;
@@ -72,18 +65,9 @@
       letter-spacing: -0.02em;
     }
 
-    .logo i {
-      color: var(--accent);
-      font-size: 2rem;
-    }
-
-    .logo span {
-      color: var(--white);
-    }
-
-    .logo .accent {
-      color: var(--accent);
-    }
+    .logo i { color: var(--accent); font-size: 2rem; }
+    .logo span { color: var(--white); }
+    .logo .accent { color: var(--accent); }
 
     nav {
       display: flex;
@@ -91,15 +75,8 @@
       font-weight: 500;
     }
 
-    nav a {
-      color: #cbd5e1;
-      transition: 0.2s;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      color: var(--accent-glow);
-    }
+    nav a { color: #cbd5e1; transition: 0.2s; font-size: 1rem; }
+    nav a:hover { color: var(--accent-glow); }
 
     .btn-outline {
       border: 1.5px solid var(--accent);
@@ -138,7 +115,7 @@
       box-shadow: 0 12px 20px rgba(59, 130, 246, 0.4);
     }
 
-    /* ---------- ГЕРОЙ-СЕКЦИЯ ---------- */
+    /* ---------- ГЕРОЙ ---------- */
     .hero {
       background: linear-gradient(135deg, #0b1e30 0%, #1a2f44 100%);
       color: white;
@@ -166,9 +143,7 @@
       flex-wrap: wrap;
     }
 
-    .hero-text {
-      flex: 1 1 400px;
-    }
+    .hero-text { flex: 1 1 400px; }
 
     .hero-text .badge {
       display: inline-block;
@@ -191,10 +166,7 @@
       margin-bottom: 20px;
     }
 
-    .hero-text h1 i {
-      color: var(--accent);
-      font-style: normal;
-    }
+    .hero-text h1 i { color: var(--accent); font-style: normal; }
 
     .hero-text p {
       font-size: 1.2rem;
@@ -215,11 +187,7 @@
       color: var(--accent-glow);
     }
 
-    .stat-item p {
-      font-size: 0.9rem;
-      color: #94a3b8;
-      margin: 0;
-    }
+    .stat-item p { font-size: 0.9rem; color: #94a3b8; margin: 0; }
 
     .hero-image {
       flex: 1 1 300px;
@@ -231,15 +199,33 @@
       font-size: 15rem;
       color: rgba(59, 130, 246, 0.25);
       filter: drop-shadow(0 0 30px rgba(59,130,246,0.3));
-      transition: 0.3s;
     }
 
-    /* ---------- СЕКЦИЯ УСЛУГ ---------- */
-    .services {
-      padding: 90px 0;
+    /* ---------- ЛОКАЛЬНОЕ ДОВЕРИЕ ---------- */
+    .local-trust {
       background: var(--white);
+      padding: 40px 0;
+      border-bottom: 1px solid #e2e8f0;
     }
 
+    .trust-flex {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .trust-item i {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .trust-item h4 { font-size: 1rem; margin-bottom: 4px; }
+    .trust-item p { font-size: 0.85rem; color: #64748b; }
+
+    /* ---------- СЕКЦИИ ---------- */
     .section-title {
       text-align: center;
       font-size: 2.4rem;
@@ -254,6 +240,12 @@
       max-width: 600px;
       margin: 0 auto 60px;
       font-size: 1.1rem;
+    }
+
+    /* Услуги */
+    .services {
+      padding: 90px 0;
+      background: var(--white);
     }
 
     .services-grid {
@@ -284,31 +276,18 @@
       margin-bottom: 24px;
     }
 
-    .service-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
+    .service-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+    .service-card p { color: #475569; font-size: 0.95rem; }
 
-    .service-card p {
-      color: #475569;
-      font-size: 0.95rem;
-    }
-
-    /* ---------- ПОЧЕМУ МЫ ---------- */
+    /* Почему мы */
     .why {
       background: var(--deep);
       color: white;
       padding: 90px 0;
     }
 
-    .why .section-title {
-      color: white;
-    }
-
-    .why .section-sub {
-      color: #b0c4de;
-    }
+    .why .section-title { color: white; }
+    .why .section-sub { color: #b0c4de; }
 
     .features {
       display: grid;
@@ -323,12 +302,6 @@
       padding: 32px 20px;
       border-radius: 32px;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: 0.2s;
-    }
-
-    .feature-item:hover {
-      background: rgba(59, 130, 246, 0.1);
-      border-color: rgba(59, 130, 246, 0.4);
     }
 
     .feature-item i {
@@ -337,17 +310,10 @@
       margin-bottom: 18px;
     }
 
-    .feature-item h4 {
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
+    .feature-item h4 { font-size: 1.3rem; margin-bottom: 8px; }
+    .feature-item p { color: #94a3b8; font-size: 0.95rem; }
 
-    .feature-item p {
-      color: #94a3b8;
-      font-size: 0.95rem;
-    }
-
-    /* ---------- ПРАЙС-ЛИСТ (краткий) ---------- */
+    /* Прайс */
     .pricing {
       padding: 90px 0;
       background: var(--gray-soft);
@@ -365,22 +331,12 @@
       border-radius: 28px;
       padding: 32px 26px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-      transition: 0.25s;
       border: 1px solid #e2e8f0;
       display: flex;
       flex-direction: column;
     }
 
-    .price-card:hover {
-      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
-      border-color: var(--accent);
-    }
-
-    .price-card h3 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+    .price-card h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
 
     .price-card .price {
       font-size: 2.4rem;
@@ -410,11 +366,7 @@
       font-size: 0.95rem;
     }
 
-    .price-card li i {
-      color: var(--accent);
-      font-size: 0.9rem;
-      width: 18px;
-    }
+    .price-card li i { color: var(--accent); font-size: 0.9rem; width: 18px; }
 
     .price-card .btn-primary {
       width: 100%;
@@ -422,7 +374,66 @@
       padding: 14px;
     }
 
-    /* ---------- КОНТАКТЫ / CTA ---------- */
+    .price-note {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* Как открыть */
+    .howto {
+      padding: 90px 0;
+      background: white;
+    }
+
+    .howto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      margin-top: 50px;
+      counter-reset: step;
+    }
+
+    .howto-step {
+      background: #f8fafc;
+      border-radius: 24px;
+      padding: 30px 24px;
+      border: 1px solid #e2e8f0;
+      position: relative;
+    }
+
+    .howto-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      top: -18px;
+      left: 24px;
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .howto-step h4 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .howto-step p {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    /* CTA */
     .cta {
       padding: 80px 0;
       background: linear-gradient(135deg, #0e1f30, #162b40);
@@ -430,11 +441,7 @@
       text-align: center;
     }
 
-    .cta h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
+    .cta h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; }
 
     .cta p {
       color: #cbd5e1;
@@ -462,25 +469,18 @@
       background: rgba(255, 255, 255, 0.1);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: 0.2s;
     }
 
-    .cta-form input::placeholder {
-      color: #9bb1c9;
-    }
+    .cta-form input::placeholder { color: #9bb1c9; }
 
     .cta-form input:focus {
       border-color: var(--accent);
       background: rgba(255, 255, 255, 0.15);
     }
 
-    .cta-form .btn-primary {
-      flex: 0 0 auto;
-      background: var(--accent);
-      padding: 16px 36px;
-    }
+    .cta-form .btn-primary { flex: 0 0 auto; padding: 16px 36px; }
 
-    /* ---------- ФУТЕР ---------- */
+    /* Footer */
     footer {
       background: #0a1622;
       color: #94a3b8;
@@ -502,9 +502,7 @@
       font-weight: 600;
     }
 
-    .footer-col ul {
-      list-style: none;
-    }
+    .footer-col ul { list-style: none; }
 
     .footer-col li {
       margin-bottom: 12px;
@@ -513,10 +511,7 @@
       gap: 10px;
     }
 
-    .footer-col i {
-      color: var(--accent);
-      width: 18px;
-    }
+    .footer-col i { color: var(--accent); width: 18px; }
 
     .footer-bottom {
       border-top: 1px solid #1e2f40;
@@ -525,69 +520,37 @@
       font-size: 0.9rem;
     }
 
-    /* ---------- АДАПТИВ ---------- */
     @media (max-width: 768px) {
-      .hero-text h1 {
-        font-size: 2.4rem;
-      }
-
-      .header-flex {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .hero-stats {
-        gap: 24px;
-      }
-
-      .hero-image i {
-        font-size: 8rem;
-      }
-
-      .btn-outline {
-        align-self: center;
-        width: fit-content;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
+      .hero-text h1 { font-size: 2.4rem; }
+      .header-flex { flex-direction: column; align-items: stretch; }
+      nav { justify-content: center; gap: 20px; flex-wrap: wrap; }
+      .hero-stats { gap: 24px; }
+      .hero-image i { font-size: 8rem; }
+      .section-title { font-size: 2rem; }
+      .trust-flex { gap: 30px; }
     }
 
     @media (max-width: 480px) {
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-
-      .hero-stats {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .cta h2 {
-        font-size: 1.9rem;
-      }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-stats { flex-direction: column; gap: 12px; }
+      .cta h2 { font-size: 1.9rem; }
     }
   </style>
 </head>
 <body>
+
   <!-- ШАПКА -->
   <header>
     <div class="container header-flex">
       <div class="logo">
         <i class="fas fa-car-side"></i>
-        <span>Детейлинг<span class="accent">PRO</span></span>
+        <span>Детейлинг<span class="accent">Бел</span></span>
       </div>
       <nav>
         <a href="#services">Услуги</a>
-        <a href="#why">Преимущества</a>
+        <a href="#why">Почему мы</a>
         <a href="#pricing">Цены</a>
+        <a href="#howto">Как открыть</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <button class="btn-outline">Записаться</button>
@@ -598,25 +561,25 @@
   <section class="hero">
     <div class="container hero-content">
       <div class="hero-text">
-        <div class="badge"><i class="fas fa-gem" style="margin-right: 6px;"></i> Премиальный уход</div>
-        <h1>Идеальный детейлинг <i>для вашего авто</i></h1>
-        <p>Профессиональная полировка, керамика, химчистка и защита кузова. Вернём машине салонный блеск и защиту от внешних воздействий.</p>
+        <div class="badge"><i class="fas fa-map-pin" style="margin-right: 6px;"></i> Белгород · Доступные цены</div>
+        <h1>Детейлинг <i>без переплат</i> в Белгороде</h1>
+        <p>Полировка, химчистка, керамика — по ценам, которые реально работают в нашем городе. Без московских наценок, с гарантией на результат.</p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
           <button class="btn-primary"><i class="fas fa-calendar-check" style="margin-right: 10px;"></i>Записаться</button>
-          <button class="btn-outline" style="border-color: #475569; color: white;"><i class="fas fa-phone-alt" style="margin-right: 8px;"></i>Связаться</button>
+          <button class="btn-outline" style="border-color: #475569; color: white;"><i class="fas fa-phone-alt" style="margin-right: 8px;"></i>Позвонить</button>
         </div>
         <div class="hero-stats">
           <div class="stat-item">
-            <h3>12+</h3>
-            <p>лет опыта</p>
+            <h3>от 500 ₽</h3>
+            <p>полировка элемента</p>
           </div>
           <div class="stat-item">
-            <h3>4500+</h3>
-            <p>довольных клиентов</p>
+            <h3>от 2 500 ₽</h3>
+            <p>химчистка салона</p>
           </div>
           <div class="stat-item">
-            <h3>98%</h3>
-            <p>рекомендуют</p>
+            <h3>от 6 000 ₽</h3>
+            <p>керамика кузова</p>
           </div>
         </div>
       </div>
@@ -626,31 +589,69 @@
     </div>
   </section>
 
+  <!-- ЛОКАЛЬНОЕ ДОВЕРИЕ -->
+  <section class="local-trust">
+    <div class="container">
+      <div class="trust-flex">
+        <div class="trust-item">
+          <i class="fas fa-hand-holding-usd"></i>
+          <h4>Соцконтракт до 350 000 ₽</h4>
+          <p>Можно получить на открытие</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Белгород и область</h4>
+          <p>Выезд по городу</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-user-tie"></i>
+          <h4>Опыт с 2018 года</h4>
+          <p>Работаем с любыми авто</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Гарантия на работы</h4>
+          <p>От 14 дней</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- УСЛУГИ -->
   <section class="services" id="services">
     <div class="container">
-      <h2 class="section-title">Наши услуги</h2>
-      <p class="section-sub">Полный спектр детейлинг-услуг для автомобилей любого класса</p>
+      <h2 class="section-title">Что мы делаем</h2>
+      <p class="section-sub">От экспресс-полировки до комплексного детейлинга — выбирайте под задачу и бюджет</p>
       <div class="services-grid">
         <div class="service-card">
           <i class="fas fa-shield-alt"></i>
           <h3>Керамическое покрытие</h3>
-          <p>Защита ЛКП на 1-3 года. Глубокий блеск, гидрофобный эффект и устойчивость к царапинам.</p>
+          <p>Защита ЛКП от 6 месяцев. Гидрофобный эффект, блеск и лёгкость мойки. Подходит для повседневных авто.</p>
         </div>
         <div class="service-card">
           <i class="fas fa-magic"></i>
           <h3>Полировка кузова</h3>
-          <p>Убираем царапины, голограммы и матовость. Восстановление зеркального блеска.</p>
+          <p>Убираем царапины и матовость. От экспресс-полировки одного элемента до абразивной по всему кузову.</p>
         </div>
         <div class="service-card">
           <i class="fas fa-couch"></i>
           <h3>Химчистка салона</h3>
-          <p>Глубокая чистка текстиля, кожи и пластика. Удаление пятен, запахов и бактерий.</p>
+          <p>Чистка текстиля, кожи, пластика. Удаление пятен и запахов. Работаем с любыми типами обивки.</p>
         </div>
         <div class="service-card">
           <i class="fas fa-tint"></i>
-          <h3>Защита стёкол</h3>
-          <p>Гидрофобное покрытие и бронирование плёнкой. Улучшает видимость в дождь.</p>
+          <h3>Антидождь и стёкла</h3>
+          <p>Обработка лобового стекла и боковых. Улучшает видимость в дождь, облегчает очистку от насекомых.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-spray-can"></i>
+          <h3>Химчистка двигателя</h3>
+          <p>Аккуратная мойка подкапотного пространства с защитой электрики. Подготовка к продаже.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-gem"></i>
+          <h3>Предпродажная подготовка</h3>
+          <p>Комплекс: мойка, полировка, химчистка. Помогает продать машину быстрее и дороже.</p>
         </div>
       </div>
     </div>
@@ -659,28 +660,28 @@
   <!-- ПОЧЕМУ МЫ -->
   <section class="why" id="why">
     <div class="container">
-      <h2 class="section-title">Почему выбирают нас</h2>
-      <p class="section-sub">Мы не просто чистим — мы создаём безупречный образ вашего автомобиля</p>
+      <h2 class="section-title">Почему с нами удобно</h2>
+      <p class="section-sub">Мы понимаем, что в Белгороде не готовы платить московские цены — поэтому работаем иначе</p>
       <div class="features">
         <div class="feature-item">
-          <i class="fas fa-flask"></i>
-          <h4>Премиальные материалы</h4>
-          <p>Только сертифицированные составы из Германии и Японии.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-user-graduate"></i>
-          <h4>Мастера с опытом</h4>
-          <p>Средний стаж специалистов — более 7 лет.</p>
+          <i class="fas fa-tag"></i>
+          <h4>Честные цены</h4>
+          <p>Ориентируемся на реальный рынок Белгорода. Полировка от 500 ₽, химчистка от 2 500 ₽.</p>
         </div>
         <div class="feature-item">
           <i class="fas fa-clock"></i>
-          <h4>Точно в срок</h4>
-          <p>Соблюдаем оговорённое время, работаем чётко и аккуратно.</p>
+          <h4>Быстро</h4>
+          <p>Экспресс-услуги — за 1–2 часа. Комплекс — по договорённости, без сюрпризов.</p>
         </div>
         <div class="feature-item">
-          <i class="fas fa-medal"></i>
-          <h4>Гарантия результата</h4>
-          <p>Даём письменную гарантию на все виды работ.</p>
+          <i class="fas fa-flask"></i>
+          <h4>Проверенная химия</h4>
+          <p>Работаем на составах, которые реально работают в наших условиях. Без переплат за «бренд».</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-handshake"></i>
+          <h4>Свои люди</h4>
+          <p>Мы сами из Белгорода. Понимаем, что важно для местных автовладельцев.</p>
         </div>
       </div>
     </div>
@@ -689,105 +690,132 @@
   <!-- ПРАЙС -->
   <section class="pricing" id="pricing">
     <div class="container">
-      <h2 class="section-title">Популярные пакеты</h2>
-      <p class="section-sub">Прозрачные цены без скрытых доплат</p>
+      <h2 class="section-title">Актуальные цены — Белгород</h2>
+      <p class="section-sub">Ниже — ориентиры по рынку. Точную стоимость скажем после осмотра, но без неожиданных «допов»</p>
       <div class="pricing-grid">
         <div class="price-card">
-          <h3>Экспресс</h3>
-          <div class="price">4 990 ₽ <small>/ авто</small></div>
+          <h3>Экспресс-уход</h3>
+          <div class="price">1 500 ₽ <small>/ авто</small></div>
           <ul>
-            <li><i class="fas fa-check-circle"></i> Мойка + воск</li>
-            <li><i class="fas fa-check-circle"></i> Чистка колёс</li>
+            <li><i class="fas fa-check-circle"></i> Экспресс-мойка кузова</li>
+            <li><i class="fas fa-check-circle"></i> Обработка воском</li>
+            <li><i class="fas fa-check-circle"></i> Чистка стёкол</li>
             <li><i class="fas fa-check-circle"></i> Чернение шин</li>
-            <li><i class="fas fa-check-circle"></i> Уборка салона (пылесос)</li>
           </ul>
           <button class="btn-primary">Выбрать</button>
         </div>
         <div class="price-card" style="border: 2px solid var(--accent);">
-          <h3>Керамика S</h3>
-          <div class="price">19 990 ₽ <small>/ авто</small></div>
+          <h3>Полировка + химчистка</h3>
+          <div class="price">4 500 ₽ <small>/ авто</small></div>
           <ul>
-            <li><i class="fas fa-check-circle"></i> Полировка кузова (1 этап)</li>
-            <li><i class="fas fa-check-circle"></i> Керамика 9H (1 год)</li>
-            <li><i class="fas fa-check-circle"></i> Покрытие стёкол</li>
-            <li><i class="fas fa-check-circle"></i> Химчистка салона</li>
+            <li><i class="fas fa-check-circle"></i> Полировка кузова (экспресс)</li>
+            <li><i class="fas fa-check-circle"></i> Химчистка салона (базовая)</li>
+            <li><i class="fas fa-check-circle"></i> Уборка багажника</li>
+            <li><i class="fas fa-check-circle"></i> Обработка пластика</li>
           </ul>
           <button class="btn-primary">Выбрать</button>
         </div>
         <div class="price-card">
-          <h3>Полный детейлинг</h3>
-          <div class="price">39 990 ₽ <small>/ авто</small></div>
+          <h3>Комплексный детейлинг</h3>
+          <div class="price">9 990 ₽ <small>/ авто</small></div>
           <ul>
-            <li><i class="fas fa-check-circle"></i> 3-этапная полировка</li>
-            <li><i class="fas fa-check-circle"></i> Керамика 9H + топ-слой</li>
-            <li><i class="fas fa-check-circle"></i> Бронирование зон риска</li>
-            <li><i class="fas fa-check-circle"></i> Детейлинг салона и кожи</li>
+            <li><i class="fas fa-check-circle"></i> Абразивная полировка (1 этап)</li>
+            <li><i class="fas fa-check-circle"></i> Керамика (6 мес.)</li>
+            <li><i class="fas fa-check-circle"></i> Полная химчистка салона</li>
+            <li><i class="fas fa-check-circle"></i> Химчистка двигателя</li>
           </ul>
           <button class="btn-primary">Выбрать</button>
+        </div>
+      </div>
+      <p class="price-note">* Цены указаны как ориентир по рынку Белгорода. Финальная стоимость зависит от состояния авто и объёма работ.</p>
+    </div>
+  </section>
+
+  <!-- КАК ОТКРЫТЬ -->
+  <section class="howto" id="howto">
+    <div class="container">
+      <h2 class="section-title">Как открыть детейлинг в Белгороде</h2>
+      <p class="section-sub">Пошаговый план — от идеи до первых клиентов. Соцконтракт реально работает в нашем регионе</p>
+      <div class="howto-grid">
+        <div class="howto-step">
+          <h4>Соцконтракт</h4>
+          <p>В Белгородской области можно получить до 350 000 ₽ на открытие бизнеса. На эти деньги покупают оборудование, химию и оплачивают аренду. Программа «Содействие» работает, есть реальные примеры [citation:4][citation:10].</p>
+        </div>
+        <div class="howto-step">
+          <h4>Помещение</h4>
+          <p>Ищите бокс на 2–3 машины. Можно взять готовый детейлинг-мойку с оборудованием — в Белгороде есть предложения от 1,4 млн ₽. Или начать с одного поста и расширяться [citation:1].</p>
+        </div>
+        <div class="howto-step">
+          <h4>Оборудование</h4>
+          <p>Минимальный старт: полировальная машинка, пылесос, экстрактор, химия (Koch, Grass, Ma-Fra), микрофибры, лампы. Если брать б/у — можно уложиться в 100–150 тыс. ₽.</p>
+        </div>
+        <div class="howto-step">
+          <h4>Клиенты</h4>
+          <p>Начните с Авито и Яндекс Услуг — там уже ищут полировку и химчистку в Белгороде. Добавьте Telegram-канал, работайте с местными автоклубами. Сарафанное радио в городе работает быстро.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- КОНТАКТЫ / CTA -->
+  <!-- CTA -->
   <section class="cta" id="contacts">
     <div class="container">
-      <h2>Запишитесь на детейлинг сегодня</h2>
-      <p>Оставьте номер — мы перезвоним в течение 10 минут, подберём удобное время и ответим на вопросы.</p>
+      <h2>Запишитесь на уход за авто</h2>
+      <p>Оставьте номер — перезвоним в течение 15 минут, скажем точную цену и подберём удобное время.</p>
       <div class="cta-form">
-        <input type="tel" placeholder="+7 (999) 123-45-67" value="">
+        <input type="tel" placeholder="+7 (999) 123-45-67">
         <button class="btn-primary">Отправить заявку</button>
       </div>
       <div style="margin-top: 40px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #b0c4de;">
-        <div><i class="fas fa-map-pin" style="margin-right: 8px; color: var(--accent);"></i> Москва, ул. Автозаводская, 12</div>
-        <div><i class="fas fa-phone" style="margin-right: 8px; color: var(--accent);"></i> +7 (495) 777-88-99</div>
-        <div><i class="fas fa-clock" style="margin-right: 8px; color: var(--accent);"></i> Ежедневно 9:00 – 21:00</div>
+        <div><i class="fas fa-map-pin" style="margin-right: 8px; color: var(--accent);"></i> Белгород, ул. Корочанская, 1Д</div>
+        <div><i class="fas fa-phone" style="margin-right: 8px; color: var(--accent);"></i> +7 (4722) 77-88-99</div>
+        <div><i class="fas fa-clock" style="margin-right: 8px; color: var(--accent);"></i> Пн–Сб 9:00 – 20:00</div>
       </div>
     </div>
   </section>
 
-  <!-- ФУТЕР -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
           <div class="logo" style="font-size: 1.4rem; margin-bottom: 16px;">
             <i class="fas fa-car-side"></i>
-            <span>Детейлинг<span class="accent" style="color: var(--accent);">PRO</span></span>
+            <span>Детейлинг<span class="accent" style="color: var(--accent);">Бел</span></span>
           </div>
-          <p style="margin-top: 16px; font-size: 0.9rem;">Студия премиального детейлинга. Работаем с 2012 года.</p>
+          <p style="margin-top: 16px; font-size: 0.9rem;">Детейлинг в Белгороде. Доступные цены, честный подход.</p>
         </div>
         <div class="footer-col">
           <h4>Услуги</h4>
           <ul>
             <li><i class="fas fa-chevron-right"></i> Полировка</li>
-            <li><i class="fas fa-chevron-right"></i> Керамика</li>
             <li><i class="fas fa-chevron-right"></i> Химчистка</li>
-            <li><i class="fas fa-chevron-right"></i> Бронирование</li>
+            <li><i class="fas fa-chevron-right"></i> Керамика</li>
+            <li><i class="fas fa-chevron-right"></i> Предпродажная</li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Контакты</h4>
           <ul>
-            <li><i class="fas fa-phone-alt"></i> +7 (495) 777-88-99</li>
-            <li><i class="fas fa-envelope"></i> info@detailpro.ru</li>
-            <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Автозаводская, 12</li>
+            <li><i class="fas fa-phone-alt"></i> +7 (4722) 77-88-99</li>
+            <li><i class="fas fa-envelope"></i> hi@detailbel.ru</li>
+            <li><i class="fas fa-map-marker-alt"></i> Белгород, Корочанская, 1Д</li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Соцсети</h4>
+          <h4>Мы в сети</h4>
           <ul>
             <li><i class="fab fa-telegram"></i> Telegram</li>
             <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
-            <li><i class="fab fa-instagram"></i> Instagram</li>
-            <li><i class="fab fa-youtube"></i> YouTube</li>
+            <li><i class="fab fa-vk"></i> ВКонтакте</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        © 2025 ДетейлингPRO. Все права защищены. | Политика конфиденциальности
+        © 2026 ДетейлингБел. Белгород. Все права защищены.
       </div>
     </div>
   </footer>
+
 </body>
 </html>
