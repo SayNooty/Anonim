@@ -3,819 +3,248 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Детейлинг в Белгороде — Доступный уход за авто</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="theme-color" content="#100b24">
+  <title>Наша вечная любовь ✦</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    body {
-      background: #f8fafc;
-      color: #0b1a2f;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
     :root {
-      --deep: #0a1c2f;
-      --accent: #3b82f6;
-      --accent-glow: #60a5fa;
-      --gray-soft: #eef2f6;
-      --white: #ffffff;
-      --text-muted: #94a3b8;
+      --violet: #b66bff;
+      --neon: #dc8cff;
+      --deep: #f2e8ff;
+      --pink: #a85cff;
+      --cream: #100b24;
+      --text: #e7dcff;
+      --panel: rgba(27, 17, 53, .82);
+      --line: rgba(199, 121, 255, .65);
     }
-
-    /* ---------- ХЕДЕР ---------- */
-    header {
-      background-color: var(--deep);
-      color: white;
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 50% -10%, rgba(126, 44, 209, .38), transparent 40rem),
+        radial-gradient(ellipse at 0% 35%, rgba(93, 35, 173, .2), transparent 35rem),
+        linear-gradient(145deg, #090615 0%, #160c2b 52%, #0a0717 100%);
+      font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
+      position: relative;
     }
-
-    .header-flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
+    /* Neon strips frame the page like LED strips in a cozy bedroom. */
+    body:before, body:after {
+      content: ""; position: fixed; z-index: 2; pointer-events: none;
+      top: 0; bottom: 0; width: 3px;
+      background: #d78aff;
+      box-shadow: 0 0 7px #d78aff, 0 0 18px #bd55ff, 0 0 38px rgba(166, 60, 255, .9);
+      opacity: .75;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    body:before { left: 10px; }
+    body:after { right: 10px; }
+    .room-glow {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(171, 73, 255, .12), transparent 58%);
     }
-
-    .logo i { color: var(--accent); font-size: 2rem; }
-    .logo span { color: var(--white); }
-    .logo .accent { color: var(--accent); }
-
-    nav {
-      display: flex;
-      gap: 32px;
-      font-weight: 500;
+    .hearts { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .heart {
+      position: absolute; bottom: -50px; color: #d88cff; opacity: 0;
+      animation: floatUp linear infinite;
+      text-shadow: 0 0 9px rgba(209, 121, 255, .8), 0 0 24px rgba(165, 73, 255, .5);
     }
-
-    nav a { color: #cbd5e1; transition: 0.2s; font-size: 1rem; }
-    nav a:hover { color: var(--accent-glow); }
-
-    .btn-outline {
-      border: 1.5px solid var(--accent);
-      color: white;
-      background: transparent;
-      padding: 10px 22px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: 0.25s;
-      cursor: pointer;
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      12% { opacity: .32; }
+      85% { opacity: .22; }
+      100% { transform: translateY(-115vh) rotate(24deg); opacity: 0; }
     }
-
-    .btn-outline:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: 0.2s;
-      cursor: pointer;
-      box-shadow: 0 6px 14px rgba(59, 130, 246, 0.35);
-    }
-
-    .btn-primary:hover {
-      background: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 20px rgba(59, 130, 246, 0.4);
-    }
-
-    /* ---------- ГЕРОЙ ---------- */
+    .page { position: relative; z-index: 1; }
     .hero {
-      background: linear-gradient(135deg, #0b1e30 0%, #1a2f44 100%);
-      color: white;
-      padding: 80px 0 90px;
-      position: relative;
-      overflow: hidden;
+      min-height: 100svh; display: flex; flex-direction: column; justify-content: center;
+      align-items: center; text-align: center; padding: 80px 30px 65px; position: relative;
+      margin: 18px;
+      border: 1px solid rgba(197, 119, 255, .35);
+      background: linear-gradient(135deg, rgba(22, 12, 42, .58), rgba(13, 8, 29, .2));
+      box-shadow: inset 0 0 65px rgba(139, 53, 218, .08), 0 0 35px rgba(148, 58, 255, .08);
     }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -50px;
-      right: -50px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+    .hero:before {
+      content: ""; position: absolute; top: 0; left: 8%; right: 8%; height: 3px;
+      background: #e5a0ff; box-shadow: 0 0 8px #e5a0ff, 0 0 20px #c45dff, 0 0 45px #9e42ff;
     }
-
-    .hero-content {
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      flex-wrap: wrap;
+    .eyebrow {
+      color: #d5a0ff; text-transform: uppercase; letter-spacing: .28em;
+      font: 700 11px/1.6 Arial, sans-serif; margin-bottom: 22px;
+      text-shadow: 0 0 12px rgba(202, 129, 255, .5);
     }
-
-    .hero-text { flex: 1 1 400px; }
-
-    .hero-text .badge {
-      display: inline-block;
-      background: rgba(59, 130, 246, 0.2);
-      color: var(--accent-glow);
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 22px;
-      border: 1px solid rgba(59, 130, 246, 0.4);
+    h1 {
+      max-width: 1050px; margin: 0; color: #fff5ff;
+      font-size: clamp(2.7rem, 8.2vw, 7rem); line-height: .99;
+      letter-spacing: -.045em; text-transform: uppercase; font-weight: 700;
+      text-wrap: balance; text-shadow: 0 0 12px rgba(227, 184, 255, .25), 0 0 35px rgba(170, 74, 255, .2);
     }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
+    h1 span { display: block; color: #d28aff; font-style: italic; font-weight: 400; text-shadow: 0 0 12px rgba(206, 119, 255, .65), 0 0 35px rgba(163, 65, 255, .35); }
+    .hero-heart { font-size: 36px; color: #e3a2ff; margin: 28px 0 15px; animation: heartbeat 1.7s ease-in-out infinite; text-shadow: 0 0 12px #bf61ff, 0 0 30px #8c38ff; }
+    @keyframes heartbeat { 0%,100% { transform: scale(1); } 12% { transform: scale(1.13); } 24% { transform: scale(1); } 36% { transform: scale(1.09); } }
+    .intro { max-width: 520px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.8; margin: 0 auto 28px; color: #d8c8ee; }
+    .button {
+      display: inline-flex; align-items: center; gap: 10px; border: 1px solid #e3a5ff; cursor: pointer;
+      padding: 15px 25px; border-radius: 999px; background: rgba(133, 47, 202, .48); color: #fff;
+      font: 700 12px Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase;
+      text-decoration: none; box-shadow: 0 0 9px rgba(202, 113, 255, .65), inset 0 0 12px rgba(189, 91, 255, .2);
+      transition: transform .2s, box-shadow .2s;
     }
-
-    .hero-text h1 i { color: var(--accent); font-style: normal; }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      color: #cbd5e1;
-      max-width: 550px;
-      margin-bottom: 34px;
+    .button:hover { transform: translateY(-3px); box-shadow: 0 0 14px #d38bff, 0 0 34px rgba(169, 66, 255, .55); }
+    .scroll-note { position: absolute; bottom: 24px; font: 10px Arial, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: #b39acb; }
+    section { padding: 90px 22px; }
+    .section-inner { max-width: 1050px; margin: auto; }
+    .section-kicker { text-align: center; color: #c78aff; font: 700 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: .25em; text-shadow: 0 0 12px rgba(181, 90, 255, .45); }
+    h2 { text-align: center; font-size: clamp(2.2rem, 5vw, 4rem); color: #f3e7ff; font-weight: 400; margin: 15px 0 18px; letter-spacing: -.035em; text-shadow: 0 0 24px rgba(174, 84, 255, .22); }
+    .section-desc { text-align: center; max-width: 600px; margin: 0 auto 42px; line-height: 1.8; font-size: 1.08rem; color: #cbb9e2; }
+    .gallery {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start;
     }
-
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 40px;
+    .photo-card {
+      background: rgba(30, 18, 54, .9); padding: 12px 12px 18px; border-radius: 5px;
+      border: 1px solid rgba(196, 123, 255, .32);
+      box-shadow: 0 0 18px rgba(133, 50, 214, .13), 0 14px 40px rgba(0,0,0,.2);
+      transform: rotate(var(--tilt, 0deg)); transition: transform .25s, box-shadow .25s;
     }
-
-    .stat-item h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent-glow);
+    .photo-card:hover { transform: rotate(0deg) translateY(-5px); box-shadow: 0 0 22px rgba(195, 111, 255, .27), 0 20px 48px rgba(0,0,0,.3); }
+    .photo-card:nth-child(1) { grid-column: span 7; --tilt: -1.3deg; }
+    .photo-card:nth-child(2) { grid-column: span 5; margin-top: 55px; --tilt: 1.4deg; }
+    .photo-card:nth-child(3) { grid-column: 2 / span 5; margin-top: -5px; --tilt: 1deg; }
+    .photo-card:nth-child(4) { grid-column: span 5; margin-top: 45px; --tilt: -1.2deg; }
+    .photo-card img { width: 100%; height: 340px; object-fit: cover; display: block; background: #28153e; }
+    .photo-card:nth-child(2) img, .photo-card:nth-child(3) img { height: 300px; }
+    .caption { text-align: center; padding: 15px 5px 0; font-size: 1.08rem; font-style: italic; color: #e5d5f7; }
+    .placeholder {
+      display: flex; min-height: 300px; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; color: #d3a1ff; text-align: center;
+      background: radial-gradient(ellipse at center, rgba(125, 49, 178, .42), transparent 70%), linear-gradient(135deg,#211337,#100b20);
+      border: 1px dashed rgba(200, 135, 255, .42);
+      font: 12px Arial, sans-serif; letter-spacing: .04em; padding: 20px;
     }
-
-    .stat-item p { font-size: 0.9rem; color: #94a3b8; margin: 0; }
-
-    .hero-image {
-      flex: 1 1 300px;
-      display: flex;
-      justify-content: center;
+    .placeholder b { font-size: 38px; font-weight: 400; text-shadow: 0 0 15px #bb5cff; }
+    .letter-section { background: linear-gradient(135deg, rgba(49, 24, 78, .65), rgba(16, 10, 34, .8)); border-top: 1px solid rgba(196, 123, 255, .25); border-bottom: 1px solid rgba(196, 123, 255, .25); }
+    .letter {
+      max-width: 760px; margin: auto; padding: clamp(28px, 6vw, 65px);
+      background: rgba(22, 14, 42, .88); border: 1px solid rgba(201, 130, 255, .36);
+      box-shadow: 0 0 35px rgba(144, 57, 230, .13); position: relative;
     }
-
-    .hero-image i {
-      font-size: 15rem;
-      color: rgba(59, 130, 246, 0.25);
-      filter: drop-shadow(0 0 30px rgba(59,130,246,0.3));
+    .letter:before, .letter:after { content: "♡"; position: absolute; color: #cb87ff; font-size: 27px; text-shadow: 0 0 12px rgba(194, 105, 255, .65); }
+    .letter:before { top: 16px; left: 20px; } .letter:after { bottom: 16px; right: 20px; }
+    .letter p { font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 2; white-space: pre-line; margin: 0; color: #e1d3f3; }
+    .signature { margin-top: 28px; color: #d69aff; font-size: 1.5rem; font-style: italic; text-align: right; text-shadow: 0 0 12px rgba(190, 94, 255, .45); }
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+    .memory { text-align: center; padding: 28px 20px; border-top: 1px solid rgba(194, 126, 255, .55); background: rgba(28, 17, 50, .75); box-shadow: inset 0 1px 15px rgba(163, 72, 255, .05); }
+    .memory .icon { color: #d49aff; font-size: 25px; text-shadow: 0 0 13px rgba(191, 89, 255, .65); }
+    .memory h3 { color: #f0e3ff; font-size: 1.25rem; font-weight: 400; margin: 14px 0 8px; }
+    .memory p { margin: 0; line-height: 1.7; font-size: .98rem; color: #cbb9e2; }
+    .final { text-align: center; padding: 100px 20px 90px; }
+    .final .big-heart { color: #d18aff; font-size: 54px; text-shadow: 0 0 15px #bc5bff, 0 0 35px rgba(157, 57, 255, .65); }
+    .final h2 { max-width: 760px; margin: 20px auto; }
+    .final p { line-height: 1.8; font-size: 1.1rem; color: #d6c7e8; }
+    footer { text-align: center; padding: 25px 15px 35px; color: #9e83bb; font: 10px Arial, sans-serif; letter-spacing: .13em; }
+    @media (max-width: 650px) {
+      body:before { left: 4px; } body:after { right: 4px; }
+      .hero { min-height: 92svh; margin: 8px; padding-left: 18px; padding-right: 18px; }
+      section { padding: 68px 17px; }
+      .gallery { display: flex; flex-direction: column; gap: 25px; }
+      .photo-card, .photo-card:nth-child(n) { width: 100%; margin: 0; transform: none; }
+      .photo-card img, .photo-card:nth-child(2) img, .photo-card:nth-child(3) img { height: 290px; }
+      .timeline { grid-template-columns: 1fr; gap: 12px; }
     }
-
-    /* ---------- ЛОКАЛЬНОЕ ДОВЕРИЕ ---------- */
-    .local-trust {
-      background: var(--white);
-      padding: 40px 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .trust-flex {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-
-    .trust-item i {
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .trust-item h4 { font-size: 1rem; margin-bottom: 4px; }
-    .trust-item p { font-size: 0.85rem; color: #64748b; }
-
-    /* ---------- СЕКЦИИ ---------- */
-    .section-title {
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
-      text-align: center;
-      color: #475569;
-      max-width: 600px;
-      margin: 0 auto 60px;
-      font-size: 1.1rem;
-    }
-
-    /* Услуги */
-    .services {
-      padding: 90px 0;
-      background: var(--white);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: #f8fafc;
-      border-radius: 28px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: 0.25s;
-      border: 1px solid #e2e8f0;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 40px -12px rgba(0, 0, 0, 0.15);
-      border-color: var(--accent);
-      background: white;
-    }
-
-    .service-card i {
-      font-size: 2.8rem;
-      color: var(--accent);
-      margin-bottom: 24px;
-    }
-
-    .service-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
-    .service-card p { color: #475569; font-size: 0.95rem; }
-
-    /* Почему мы */
-    .why {
-      background: var(--deep);
-      color: white;
-      padding: 90px 0;
-    }
-
-    .why .section-title { color: white; }
-    .why .section-sub { color: #b0c4de; }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-top: 50px;
-    }
-
-    .feature-item {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 32px 20px;
-      border-radius: 32px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .feature-item i {
-      font-size: 2.2rem;
-      color: var(--accent-glow);
-      margin-bottom: 18px;
-    }
-
-    .feature-item h4 { font-size: 1.3rem; margin-bottom: 8px; }
-    .feature-item p { color: #94a3b8; font-size: 0.95rem; }
-
-    /* Прайс */
-    .pricing {
-      padding: 90px 0;
-      background: var(--gray-soft);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      margin-top: 50px;
-    }
-
-    .price-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px 26px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-      border: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .price-card h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
-
-    .price-card .price {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin: 16px 0 8px;
-    }
-
-    .price-card .price small {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #64748b;
-    }
-
-    .price-card ul {
-      list-style: none;
-      margin: 24px 0 30px;
-      flex: 1;
-    }
-
-    .price-card li {
-      padding: 8px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #334155;
-      font-size: 0.95rem;
-    }
-
-    .price-card li i { color: var(--accent); font-size: 0.9rem; width: 18px; }
-
-    .price-card .btn-primary {
-      width: 100%;
-      text-align: center;
-      padding: 14px;
-    }
-
-    .price-note {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #64748b;
-    }
-
-    /* Как открыть */
-    .howto {
-      padding: 90px 0;
-      background: white;
-    }
-
-    .howto-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 28px;
-      margin-top: 50px;
-      counter-reset: step;
-    }
-
-    .howto-step {
-      background: #f8fafc;
-      border-radius: 24px;
-      padding: 30px 24px;
-      border: 1px solid #e2e8f0;
-      position: relative;
-    }
-
-    .howto-step::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      top: -18px;
-      left: 24px;
-      width: 36px;
-      height: 36px;
-      background: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-    }
-
-    .howto-step h4 {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      font-size: 1.15rem;
-    }
-
-    .howto-step p {
-      font-size: 0.9rem;
-      color: #475569;
-    }
-
-    /* CTA */
-    .cta {
-      padding: 80px 0;
-      background: linear-gradient(135deg, #0e1f30, #162b40);
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; }
-
-    .cta p {
-      color: #cbd5e1;
-      max-width: 500px;
-      margin: 0 auto 36px;
-      font-size: 1.15rem;
-    }
-
-    .cta-form {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .cta-form input {
-      flex: 1 1 260px;
-      padding: 16px 22px;
-      border-radius: 60px;
-      border: none;
-      font-size: 1rem;
-      outline: none;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .cta-form input::placeholder { color: #9bb1c9; }
-
-    .cta-form input:focus {
-      border-color: var(--accent);
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .cta-form .btn-primary { flex: 0 0 auto; padding: 16px 36px; }
-
-    /* Footer */
-    footer {
-      background: #0a1622;
-      color: #94a3b8;
-      padding: 50px 0 30px;
-      font-size: 0.95rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-col h4 {
-      color: white;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .footer-col ul { list-style: none; }
-
-    .footer-col li {
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-col i { color: var(--accent); width: 18px; }
-
-    .footer-bottom {
-      border-top: 1px solid #1e2f40;
-      padding-top: 28px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero-text h1 { font-size: 2.4rem; }
-      .header-flex { flex-direction: column; align-items: stretch; }
-      nav { justify-content: center; gap: 20px; flex-wrap: wrap; }
-      .hero-stats { gap: 24px; }
-      .hero-image i { font-size: 8rem; }
-      .section-title { font-size: 2rem; }
-      .trust-flex { gap: 30px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-text h1 { font-size: 2rem; }
-      .hero-stats { flex-direction: column; gap: 12px; }
-      .cta h2 { font-size: 1.9rem; }
-    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
+  <div class="room-glow" aria-hidden="true"></div>
+  <div class="hearts" aria-hidden="true" id="hearts"></div>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">наша маленькая история · 08.05.2026 — 08.11.2026</div>
+      <h1>6 месяцев <span>длится наша</span> вечная любовь</h1>
+      <div class="hero-heart">♡</div>
+      <p class="intro">Полгода рядом с тобой — и каждый день я снова выбираю тебя. Это наша история, и она только начинается.</p>
+      <a class="button" href="#photos">Наша история <span>↓</span></a>
+      <div class="scroll-note">листай вниз · здесь наша любовь</div>
+    </header>
 
-  <!-- ШАПКА -->
-  <header>
-    <div class="container header-flex">
-      <div class="logo">
-        <i class="fas fa-car-side"></i>
-        <span>Детейлинг<span class="accent">Бел</span></span>
+    <section id="photos">
+      <div class="section-inner">
+        <div class="section-kicker">мгновения, которые хочется хранить</div>
+        <h2>Наши воспоминания</h2>
+        <p class="section-desc">Каждая фотография — маленький кусочек счастья.</p>
+        <div class="gallery">
+          <article class="photo-card">
+            <!-- Замени images/photo1.jpg на путь к своей фотографии -->
+            <img src="photo/moment.jpg" alt="Момент, который хочется повторить">
+            <div class="caption">«Момент, который хочется повторить»</div>
+          </article>
+          <article class="photo-card">
+            <img src="photo/location.jpeg" alt="Моё любимое место — рядом с тобой">
+            <div class="caption">«Моё любимое место — рядом с тобой»</div>
+          </article>
+          <article class="photo-card">
+            <img src="photo/love.jpg" alt="Счастье выглядит именно так">
+            <div class="caption">«Счастье выглядит именно так»</div>
+          </article>
+          <article class="photo-card">
+            <img src="photo/more.jpg" alt="И впереди у нас ещё столько всего">
+            <div class="caption">«И впереди у нас ещё столько всего»</div>
+          </article>
+        </div>
       </div>
-      <nav>
-        <a href="#services">Услуги</a>
-        <a href="#why">Почему мы</a>
-        <a href="#pricing">Цены</a>
-        <a href="#howto">Как открыть</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-      <button class="btn-outline">Записаться</button>
-    </div>
-  </header>
+    </section>
 
-  <!-- ГЕРОЙ -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <div class="badge"><i class="fas fa-map-pin" style="margin-right: 6px;"></i> Белгород · Доступные цены</div>
-        <h1>Детейлинг <i>без переплат</i> в Белгороде</h1>
-        <p>Полировка, химчистка, керамика — по ценам, которые реально работают в нашем городе. Без московских наценок, с гарантией на результат.</p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <button class="btn-primary"><i class="fas fa-calendar-check" style="margin-right: 10px;"></i>Записаться</button>
-          <button class="btn-outline" style="border-color: #475569; color: white;"><i class="fas fa-phone-alt" style="margin-right: 8px;"></i>Позвонить</button>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <h3>от 500 ₽</h3>
-            <p>полировка элемента</p>
-          </div>
-          <div class="stat-item">
-            <h3>от 2 500 ₽</h3>
-            <p>химчистка салона</p>
-          </div>
-          <div class="stat-item">
-            <h3>от 6 000 ₽</h3>
-            <p>керамика кузова</p>
-          </div>
-        </div>
-      </div>
-      <div class="hero-image">
-        <i class="fas fa-car"></i>
-      </div>
-    </div>
-  </section>
+    <section class="letter-section" id="letter">
+      <div class="section-inner">
+        <div class="section-kicker">несколько слов от сердца</div>
+        <h2>Письмо тебе</h2>
+        <div class="letter">
+          <!-- Замени этот текст своим письмом -->
+          <p>Ангелиночка моя,
 
-  <!-- ЛОКАЛЬНОЕ ДОВЕРИЕ -->
-  <section class="local-trust">
-    <div class="container">
-      <div class="trust-flex">
-        <div class="trust-item">
-          <i class="fas fa-hand-holding-usd"></i>
-          <h4>Соцконтракт до 350 000 ₽</h4>
-          <p>Можно получить на открытие</p>
-        </div>
-        <div class="trust-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <h4>Белгород и область</h4>
-          <p>Выезд по городу</p>
-        </div>
-        <div class="trust-item">
-          <i class="fas fa-user-tie"></i>
-          <h4>Опыт с 2018 года</h4>
-          <p>Работаем с любыми авто</p>
-        </div>
-        <div class="trust-item">
-          <i class="fas fa-shield-alt"></i>
-          <h4>Гарантия на работы</h4>
-          <p>От 14 дней</p>
-        </div>
-      </div>
-    </div>
-  </section>
+За эти шесть месяцев ты стала огромной частью моей жизни. Спасибо тебе за улыбки, объятия, поддержку и все моменты, которые рядом с тобой становятся особенными.
 
-  <!-- УСЛУГИ -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2 class="section-title">Что мы делаем</h2>
-      <p class="section-sub">От экспресс-полировки до комплексного детейлинга — выбирайте под задачу и бюджет</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Керамическое покрытие</h3>
-          <p>Защита ЛКП от 6 месяцев. Гидрофобный эффект, блеск и лёгкость мойки. Подходит для повседневных авто.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-magic"></i>
-          <h3>Полировка кузова</h3>
-          <p>Убираем царапины и матовость. От экспресс-полировки одного элемента до абразивной по всему кузову.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-couch"></i>
-          <h3>Химчистка салона</h3>
-          <p>Чистка текстиля, кожи, пластика. Удаление пятен и запахов. Работаем с любыми типами обивки.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-tint"></i>
-          <h3>Антидождь и стёкла</h3>
-          <p>Обработка лобового стекла и боковых. Улучшает видимость в дождь, облегчает очистку от насекомых.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-spray-can"></i>
-          <h3>Химчистка двигателя</h3>
-          <p>Аккуратная мойка подкапотного пространства с защитой электрики. Подготовка к продаже.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-gem"></i>
-          <h3>Предпродажная подготовка</h3>
-          <p>Комплекс: мойка, полировка, химчистка. Помогает продать машину быстрее и дороже.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+Мне не нужно, чтобы каждый день был идеальным. Мне важно, чтобы в нём была - ты. Я хочу продолжать узнавать тебя, смеяться вместе, исполнять наши мечты и создавать воспоминания, к которым мы будем возвращаться с улыбкой.
 
-  <!-- ПОЧЕМУ МЫ -->
-  <section class="why" id="why">
-    <div class="container">
-      <h2 class="section-title">Почему с нами удобно</h2>
-      <p class="section-sub">Мы понимаем, что в Белгороде не готовы платить московские цены — поэтому работаем иначе</p>
-      <div class="features">
-        <div class="feature-item">
-          <i class="fas fa-tag"></i>
-          <h4>Честные цены</h4>
-          <p>Ориентируемся на реальный рынок Белгорода. Полировка от 500 ₽, химчистка от 2 500 ₽.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-clock"></i>
-          <h4>Быстро</h4>
-          <p>Экспресс-услуги — за 1–2 часа. Комплекс — по договорённости, без сюрпризов.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-flask"></i>
-          <h4>Проверенная химия</h4>
-          <p>Работаем на составах, которые реально работают в наших условиях. Без переплат за «бренд».</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-handshake"></i>
-          <h4>Свои люди</h4>
-          <p>Мы сами из Белгорода. Понимаем, что важно для местных автовладельцев.</p>
+Шесть месяцев — это только начало нашей истории. Я люблю тебя сегодня, буду любить завтра и хочу выбирать тебя снова и снова.</p>
+          <div class="signature">Твой Серёжа ♡</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ПРАЙС -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <h2 class="section-title">Актуальные цены — Белгород</h2>
-      <p class="section-sub">Ниже — ориентиры по рынку. Точную стоимость скажем после осмотра, но без неожиданных «допов»</p>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h3>Экспресс-уход</h3>
-          <div class="price">1 500 ₽ <small>/ авто</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Экспресс-мойка кузова</li>
-            <li><i class="fas fa-check-circle"></i> Обработка воском</li>
-            <li><i class="fas fa-check-circle"></i> Чистка стёкол</li>
-            <li><i class="fas fa-check-circle"></i> Чернение шин</li>
-          </ul>
-          <button class="btn-primary">Выбрать</button>
-        </div>
-        <div class="price-card" style="border: 2px solid var(--accent);">
-          <h3>Полировка + химчистка</h3>
-          <div class="price">4 500 ₽ <small>/ авто</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Полировка кузова (экспресс)</li>
-            <li><i class="fas fa-check-circle"></i> Химчистка салона (базовая)</li>
-            <li><i class="fas fa-check-circle"></i> Уборка багажника</li>
-            <li><i class="fas fa-check-circle"></i> Обработка пластика</li>
-          </ul>
-          <button class="btn-primary">Выбрать</button>
-        </div>
-        <div class="price-card">
-          <h3>Комплексный детейлинг</h3>
-          <div class="price">9 990 ₽ <small>/ авто</small></div>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Абразивная полировка (1 этап)</li>
-            <li><i class="fas fa-check-circle"></i> Керамика (6 мес.)</li>
-            <li><i class="fas fa-check-circle"></i> Полная химчистка салона</li>
-            <li><i class="fas fa-check-circle"></i> Химчистка двигателя</li>
-          </ul>
-          <button class="btn-primary">Выбрать</button>
+    <section id="little-things">
+      <div class="section-inner">
+        <div class="section-kicker">из чего состоит наше счастье</div>
+        <h2>Люблю в тебе</h2>
+        <div class="timeline">
+          <article class="memory"><div class="icon">♡</div><h3>Твою улыбку</h3><p>Она делает даже самый обычный день чуточку светлее.</p></article>
+          <article class="memory"><div class="icon">✧</div><h3>Наши моменты</h3><p>Даже простое «побыть вместе» для меня уже счастье.</p></article>
+          <article class="memory"><div class="icon">∞</div><h3>Наше будущее</h3><p>Мне хочется, чтобы впереди у нас было ещё больше историй.</p></article>
         </div>
       </div>
-      <p class="price-note">* Цены указаны как ориентир по рынку Белгорода. Финальная стоимость зависит от состояния авто и объёма работ.</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- КАК ОТКРЫТЬ -->
-  <section class="howto" id="howto">
-    <div class="container">
-      <h2 class="section-title">Как открыть детейлинг в Белгороде</h2>
-      <p class="section-sub">Пошаговый план — от идеи до первых клиентов. Соцконтракт реально работает в нашем регионе</p>
-      <div class="howto-grid">
-        <div class="howto-step">
-          <h4>Соцконтракт</h4>
-          <p>В Белгородской области можно получить до 350 000 ₽ на открытие бизнеса. На эти деньги покупают оборудование, химию и оплачивают аренду. Программа «Содействие» работает, есть реальные примеры [citation:4][citation:10].</p>
-        </div>
-        <div class="howto-step">
-          <h4>Помещение</h4>
-          <p>Ищите бокс на 2–3 машины. Можно взять готовый детейлинг-мойку с оборудованием — в Белгороде есть предложения от 1,4 млн ₽. Или начать с одного поста и расширяться [citation:1].</p>
-        </div>
-        <div class="howto-step">
-          <h4>Оборудование</h4>
-          <p>Минимальный старт: полировальная машинка, пылесос, экстрактор, химия (Koch, Grass, Ma-Fra), микрофибры, лампы. Если брать б/у — можно уложиться в 100–150 тыс. ₽.</p>
-        </div>
-        <div class="howto-step">
-          <h4>Клиенты</h4>
-          <p>Начните с Авито и Яндекс Услуг — там уже ищут полировку и химчистку в Белгороде. Добавьте Telegram-канал, работайте с местными автоклубами. Сарафанное радио в городе работает быстро.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="contacts">
-    <div class="container">
-      <h2>Запишитесь на уход за авто</h2>
-      <p>Оставьте номер — перезвоним в течение 15 минут, скажем точную цену и подберём удобное время.</p>
-      <div class="cta-form">
-        <input type="tel" placeholder="+7 (999) 123-45-67">
-        <button class="btn-primary">Отправить заявку</button>
-      </div>
-      <div style="margin-top: 40px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; color: #b0c4de;">
-        <div><i class="fas fa-map-pin" style="margin-right: 8px; color: var(--accent);"></i> Белгород, ул. Корочанская, 1Д</div>
-        <div><i class="fas fa-phone" style="margin-right: 8px; color: var(--accent);"></i> +7 (4722) 77-88-99</div>
-        <div><i class="fas fa-clock" style="margin-right: 8px; color: var(--accent);"></i> Пн–Сб 9:00 – 20:00</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="logo" style="font-size: 1.4rem; margin-bottom: 16px;">
-            <i class="fas fa-car-side"></i>
-            <span>Детейлинг<span class="accent" style="color: var(--accent);">Бел</span></span>
-          </div>
-          <p style="margin-top: 16px; font-size: 0.9rem;">Детейлинг в Белгороде. Доступные цены, честный подход.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Услуги</h4>
-          <ul>
-            <li><i class="fas fa-chevron-right"></i> Полировка</li>
-            <li><i class="fas fa-chevron-right"></i> Химчистка</li>
-            <li><i class="fas fa-chevron-right"></i> Керамика</li>
-            <li><i class="fas fa-chevron-right"></i> Предпродажная</li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Контакты</h4>
-          <ul>
-            <li><i class="fas fa-phone-alt"></i> +7 (4722) 77-88-99</li>
-            <li><i class="fas fa-envelope"></i> hi@detailbel.ru</li>
-            <li><i class="fas fa-map-marker-alt"></i> Белгород, Корочанская, 1Д</li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Мы в сети</h4>
-          <ul>
-            <li><i class="fab fa-telegram"></i> Telegram</li>
-            <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
-            <li><i class="fab fa-vk"></i> ВКонтакте</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        © 2026 ДетейлингБел. Белгород. Все права защищены.
-      </div>
-    </div>
-  </footer>
-
+    <section class="final">
+      <div class="big-heart">♥</div>
+      <h2>И это только начало…</h2>
+      <p>08.05.2026 — 08.11.2026<br>6 месяцев рядом. И целая вечность впереди.<br><strong>Я люблю тебя. Сегодня, завтра и всегда. Встретимся 08.05.2027 ☻</strong></p>
+      <a class="button" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">В самое начало ↑</a>
+    </section>
+  </main>
+  <footer>СДЕЛАНО С ЛЮБОВЬЮ · ТОЛЬКО ДЛЯ НАС ♡</footer>
+  <script>
+    const hearts = document.getElementById('hearts');
+    const symbols = ['♡', '♥', '✧', '·'];
+    for (let i = 0; i < 22; i++) {
+      const heart = document.createElement('span');
+      heart.className = 'heart';
+      heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.fontSize = (12 + Math.random() * 22) + 'px';
+      heart.style.animationDuration = (13 + Math.random() * 18) + 's';
+      heart.style.animationDelay = (-Math.random() * 28) + 's';
+      hearts.appendChild(heart);
+    }
+  </script>
 </body>
 </html>
